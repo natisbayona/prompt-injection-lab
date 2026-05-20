@@ -1,39 +1,46 @@
 # ------- Pasos a seguir desde la terminal de VSCode -------
 
-
-## 1. crear el entorno virtual (Terminal 1)
+## 1. Crear el entorno virtual (Terminal)
 py -m venv .venv
 
-## 3. Ingresar al entorno virtual
-.\.venv\Scripts\activate
+## 2. Activar el entorno virtual
 
+### Windows (PowerShell)
 .\.venv\Scripts\Activate.ps1
 
-## 2. Instalar dependencias:
+### Windows (CMD)
+.\.venv\Scripts\activate
+
+### Linux / Kali
+source .venv/bin/activate
+
+
+## 3. Instalar dependencias
+
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-pip install requests pandas colorama tabulate  [alternativo]
-pip install openpyxl [alternativo]
-pip list 
+
+pip install requests pandas colorama tabulate openpyxl
+pip list
 
 
 ## 4. Ejecutar el programa
+
 python app.py
 
 
+---
+
 ### Relación e interacción entre los archivos del sistema
 
-- Este proyecto funciona bajo una arquitectura cliente-servidor donde:
+Este proyecto funciona bajo una arquitectura cliente-servidor donde:
 
-1.) Frontend (cliente): index.html + script.js
+1. Frontend (cliente): index.html + script.js  
+2. Backend (servidor): app.py  
+3. Modelo de IA: Gemini API  
 
-2.) Backend (servidor): app.py
+El flujo completo permite que el usuario escriba un mensaje, el servidor lo procese con el modelo de lenguaje y devuelva una respuesta.
 
-- Modelo de IA: Gemini API
-
-1. El flujo completo permite que el usuario escriba un mensaje, 
-2. el servidor lo procese con el modelo de lenguaje y 
-3. devuelva una respuesta.
 
 ### ------------------ Contexto de interacción ------------------
 
@@ -62,12 +69,12 @@ script.js
 Chat en pantalla
 
 
-| Archivo    | Rol                                                          |
-| ---------- | ------------------------------------------------------------ |
-| index.html | Interfaz visual del chat                                     |
+| Archivo    | Rol |
+| ---------- | --- |
+| index.html | Interfaz visual del chat |
 | script.js  | Maneja interacción del usuario y comunicación con el backend |
-| app.py     | Servidor Flask que procesa mensajes                          |
-| Gemini API | Modelo de IA que genera respuestas                           |
+| app.py     | Servidor Flask que procesa mensajes |
+| Gemini API | Modelo de IA que genera respuestas |
 
 
 Usuario
@@ -93,9 +100,11 @@ Frontend
    ▼
 Usuario
 
-### Pruebas - QA de Prompt Injection.
+
+### Pruebas - QA de Prompt Injection
 
 ## Estructura
+
 qa-tests/
 │
 ├── payloads.json
@@ -103,19 +112,22 @@ qa-tests/
 ├── test_prompt_injection.py
 └── reports/
 
+
 ## Ejecutar pruebas QA (Terminal 2)
 
-> Desde qa-tests:
+Desde qa-tests:
+
 cd qa-tests
 python test_prompt_injection.py
 
 
 ## Revisar reportes
 
-> Los reportes se generan en:
+Los reportes se generan en:
+
 qa-tests/reports/
 
-> Formatos generados:
+Formatos generados:
 JSON
 Excel
 HTML
