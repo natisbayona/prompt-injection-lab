@@ -1,133 +1,162 @@
-# ------- Pasos a seguir desde la terminal de VSCode -------
+# Framework PIAP-LLM
 
-## 1. Crear el entorno virtual (Terminal)
-py -m venv .venv
+Prompt Injection Analysis and Prevention for Large Language Models.
 
-## 2. Activar el entorno virtual
-
-### Windows (PowerShell)
-.\.venv\Scripts\Activate.ps1
-
-### Windows (CMD)
-.\.venv\Scripts\activate
-
-### Linux / Kali
-source .venv/bin/activate
-
-
-## 3. Instalar dependencias
-
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-
-pip install requests pandas colorama tabulate openpyxl
-pip list
-
-
-## 4. Ejecutar el programa
-
-python app.py
-
+Proyecto académico enfocado en pruebas de seguridad sobre aplicaciones basadas en modelos de lenguaje (LLM), utilizando Prompt Injection, OWASP ZAP y análisis controlado sobre Latinoamérica Comparte.
 
 ---
 
-### Relación e interacción entre los archivos del sistema
+# Portal objetivo
 
-Este proyecto funciona bajo una arquitectura cliente-servidor donde:
+https://www.latinoamericacomparte.com/
 
-1. Frontend (cliente): index.html + script.js  
-2. Backend (servidor): app.py  
-3. Modelo de IA: Gemini API  
+---
 
-El flujo completo permite que el usuario escriba un mensaje, el servidor lo procese con el modelo de lenguaje y devuelva una respuesta.
+# Objetivos del laboratorio
 
+- Reconocimiento web
+- Captura de tráfico HTTP
+- Análisis de vulnerabilidades
+- Prompt Injection Testing
+- Generación de reportes QA
 
-### ------------------ Contexto de interacción ------------------
+---
 
-Usuario
-   │
-   ▼
-index.html
-   │
-   ▼
-script.js
-   │
-   │ fetch("/chat")
-   ▼
-Flask (app.py)
-   │
-   ▼
-Gemini API
-   │
-   ▼
-Flask responde JSON
-   │
-   ▼
-script.js
-   │
-   ▼
-Chat en pantalla
+# Herramientas utilizadas
 
+- OWASP ZAP
+- Kali Linux
+- Python 3
+- Flask
+- Google Gemini API
+- GitHub
 
-| Archivo    | Rol |
-| ---------- | --- |
-| index.html | Interfaz visual del chat |
-| script.js  | Maneja interacción del usuario y comunicación con el backend |
-| app.py     | Servidor Flask que procesa mensajes |
-| Gemini API | Modelo de IA que genera respuestas |
+---
 
+# Arquitectura del sistema
 
-Usuario
-   │
-   ▼
-Frontend (HTML + JS)
-   │
-   │ HTTP request
-   ▼
-Backend Flask
-   │
-   │ Prompt
-   ▼
-Gemini API
-   │
-   │ Respuesta
-   ▼
-Backend
-   │
-   ▼
-Frontend
-   │
-   ▼
+Usuario  
+↓  
+Frontend (HTML + JS)  
+↓  
+Flask Backend  
+↓  
+Gemini API  
+↓  
+Respuesta JSON  
+↓  
 Usuario
 
+---
 
-### Pruebas - QA de Prompt Injection
+# Componentes principales
 
-## Estructura
+| Archivo | Función |
+|---|---|
+| index.html | Interfaz visual |
+| script.js | Comunicación frontend |
+| app.py | Backend Flask |
+| Gemini API | Modelo de IA |
 
-qa-tests/
-│
-├── payloads.json
-├── metrics.py
-├── test_prompt_injection.py
-└── reports/
+---
 
+# Payloads evaluados
 
-## Ejecutar pruebas QA (Terminal 2)
+- Override
+- Role Escalation
+- Data Exfiltration
+- Prompt Chaining
+- Social Engineering
+- Jailbreak
+- Context Poisoning
 
-Desde qa-tests:
+---
 
+# Ejecución del laboratorio
+
+## Crear entorno virtual
+
+```bash
+python3 -m venv .venv
+```
+
+## Activar entorno virtual
+
+```bash
+source .venv/bin/activate
+```
+
+## Instalar dependencias
+
+```bash
+pip install -r requirements.txt
+```
+
+## Ejecutar aplicación
+
+```bash
+python app.py
+```
+
+---
+
+# Pruebas QA
+
+```bash
 cd qa-tests
 python test_prompt_injection.py
+```
 
+---
 
-## Revisar reportes
+# Reportes generados
 
-Los reportes se generan en:
+- HTML
+- JSON
+- XLSX
 
+Ubicación:
+
+```bash
 qa-tests/reports/
+```
 
-Formatos generados:
-JSON
-Excel
-HTML
+---
+
+# Evidencias del laboratorio
+
+## OWASP ZAP
+
+Reconocimiento y análisis web sobre Latinoamérica Comparte.
+
+## Gemini API
+
+Pruebas automatizadas de Prompt Injection.
+
+## QA Reports
+
+Generación automática de reportes técnicos.
+
+---
+
+# Framework PIAP-LLM
+
+Fases principales:
+
+- Prevención
+- Identificación
+- Análisis
+- Mitigación
+
+---
+
+# Repositorio académico
+
+Universidad Santo Tomás  
+Ciberseguridad: White Hat & Blue Team Strategies
+
+---
+
+# Autor
+
+Heidy Natalia Bayona Hernandez
